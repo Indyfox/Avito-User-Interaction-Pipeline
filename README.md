@@ -1,4 +1,4 @@
-# AvitoTech User Interaction Pipeline: От наносекунд до бизнес-метрик
+# Avito User Interaction Pipeline: От наносекунд до бизнес-метрик
 
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-3776AB?logo=python)](https://python.org)
 [![Spark 3.5.1](https://img.shields.io/badge/Spark-3.5.1-E25A1C?logo=apachespark)](https://spark.apache.org)
