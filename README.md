@@ -154,7 +154,6 @@ df.withColumn("event_date", (col("event_date") / 1_000_000_000).cast("timestamp"
 ## 📁 Структура репозитория
 
 ```
-avito-ml-cup-2025/
 ├── dags/
 │   ├── avito_incremental_marts_dag.py   # Ежедневная загрузка витрин
 │   └── avito_load_dag.py                # Загрузка сырых данных
@@ -162,9 +161,9 @@ avito-ml-cup-2025/
 │   ├── avito_load.ipynb                 # ETL в core-слой
 │   └── avito_incremental_marts.ipynb    # Инкрементальная загрузка витрин
 ├── screenshots/
-│   ├── dashboard_overview.png           # Обзорный дашборд
-│   ├── dashboard_interactions.png       # Детальные взаимодействия
-│   └── dashboard_behavior.png           # Поведение пользователей
+│   ├── dashboard_part1.png           
+│   ├── dashboard_part2.png       
+│   └── dashboard_part3.png          
 └── README.md
 ```
 
@@ -190,10 +189,6 @@ avito-ml-cup-2025/
 Data BI Engineer с опытом построения пайплайнов и любовью к чистой архитектуре.  
 Люблю писать SQL-запросы!
 Верю, что данные должны приносить пользу, а не пылиться в озере.
-
-- 🌐 [GitHub](https://github.com/yourusername)
-- 📧 your.email@example.com
-- 💼 [LinkedIn](https://linkedin.com/in/yourprofile)
 
 ---
 
