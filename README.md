@@ -111,30 +111,7 @@ df.withColumn("event_date", (col("event_date") / 1_000_000_000).cast("timestamp"
 ### 2. Инкрементальная загрузка без дублирования
 Витрины обновляются только за затронутые дни, а не пересчитываются полностью:
 
-```sql
--- Удаляем агрегаты ТОЛЬКО за дни из новой партиции
-DELETE FROM marts.mart_daily_surface_stats 
-WHERE event_day IN (
-    SELECT DISTINCT DATE_TRUNC('day', event_date)::date 
-    FROM core.fct_user_interactions 
-    WHERE ingest_date = '2025-02-14'
-);
-
--- Пересчитываем на основе ВСЕХ фактов за эти дни
-INSERT INTO marts.mart_daily_surface_stats
-SELECT 
-    DATE_TRUNC('day', event_date)::date AS event_day,
-    surface_id,
-    platform_id,
-    COUNT(*) AS total_interactions,
-    COUNT(CASE WHEN is_contact THEN 1 END) AS contacts,
-    ROUND(COUNT(CASE WHEN is_contact THEN 1 END) * 100.0 / COUNT(*), 2) AS contact_rate
-FROM core.fct_user_interactions
-WHERE DATE_TRUNC('day', event_date)::date IN ('2025-02-14')  -- Только затронутые дни
-GROUP BY 1, 2, 3;
-```
-
-### 3. Витрины без сложных типов
+### 3. Витрины подготовлены для BI инструментов
 Все колонки содержат скалярные значения — готовы к дрэг-н-дроп в любом BI:
 
 | Витрина | Колонки | Применение |
